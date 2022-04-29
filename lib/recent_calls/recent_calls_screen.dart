@@ -1,3 +1,4 @@
+import 'package:call_logs/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:call_logs/recent_calls/call_item.dart';
 import 'package:flutter/services.dart';
@@ -33,7 +34,7 @@ class _RecentCallsState extends State<RecentCalls> {
         itemBuilder: (_, int index) => const CallCard(),
         separatorBuilder: (_, int index) => const Padding(
           padding: EdgeInsets.only(left: 42),
-          child: Divider(thickness: 0.5, height: 0.5),
+          child: Divider(thickness: 0.5, height: 0.5,color: AppColor.tertiary,),
         ),
         itemCount: 300,
         physics: const BouncingScrollPhysics(),
