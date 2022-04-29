@@ -29,12 +29,14 @@ class _CallCardState extends State<CallCard> {
               children: const [
                 Text('+0 (000) 000-00-00',
                     style:
-                    TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
-                Text('Доп. информация', style: TextStyle(color: Color(0xff8A8A8D), fontSize: 15)),
+                        TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
+                Text('Доп. информация',
+                    style: TextStyle(color: Color(0xff8A8A8D), fontSize: 15)),
               ],
             ),
           ),
-          const Text('Дата', style: TextStyle(color: Color(0xff8A8A8D), fontSize: 15)),
+          const Text('Дата',
+              style: TextStyle(color: Color(0xff8A8A8D), fontSize: 15)),
           IconButton(
               padding: const EdgeInsets.only(left: 8, right: 21),
               onPressed: () => Navigator.pushNamed(context, '/info'),

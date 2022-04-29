@@ -18,8 +18,8 @@ class _RecentCallsState extends State<RecentCalls> {
           'Журнал звонков',
           style: TextStyle(color: Colors.black),
         ),
+        elevation: 1,
         backgroundColor: const Color(0xffF9F9FB),
-
         systemOverlayStyle: const SystemUiOverlayStyle(
           // Status bar color
           statusBarColor: Color(0xffF9F9FB),
@@ -28,7 +28,6 @@ class _RecentCallsState extends State<RecentCalls> {
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
-
       ),
       body: ListView.separated(
         itemBuilder: (_, int index) => const CallCard(),
