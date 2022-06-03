@@ -3,7 +3,10 @@ import 'package:call_logs/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CallCard extends StatefulWidget {
-  const CallCard({Key? key}) : super(key: key);
+  final String phone ;
+  final String information;
+  final String data;
+  const CallCard({Key? key, this.phone = '+0 (000) 000-00-00', this.information ='Доп. информация' , this.data = "Дата"}) : super(key: key);
 
   @override
   State<CallCard> createState() => _CallCardState();
@@ -28,15 +31,15 @@ class _CallCardState extends State<CallCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children:  [
-                Text('+0 (000) 000-00-00',
+                Text(widget.phone,
                     style:
                         AppTextStyle.bold17()),
-                Text('Доп. информация',
+                Text(widget.information,
                     style: AppTextStyle.regular15()),
               ],
             ),
           ),
-           Text('Дата',
+           Text(widget.data,
               style: AppTextStyle.regular15()),
           IconButton(
               padding: const EdgeInsets.only(left: 8, right: 21),
