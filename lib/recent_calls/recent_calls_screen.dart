@@ -62,7 +62,7 @@ class _RecentCallsState extends State<RecentCalls> {
                     type : userInfo['type'],
                     data: userInfo['date'],
                     person: userInfo['person'],
-                    calls: userInfo['calls'],
+                    count: userInfo['count'],
                     additional: userInfo['additional'],
                     unmissed: userInfo['unmissed'],
 

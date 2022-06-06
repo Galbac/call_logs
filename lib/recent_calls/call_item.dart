@@ -6,7 +6,7 @@ class CallCard extends StatefulWidget {
   final String type;
   final String person;
   final String data;
-  final int calls;
+  final int count;
   final bool unmissed;
   final String additional;
 
@@ -15,7 +15,7 @@ class CallCard extends StatefulWidget {
       this.type = "video",
       this.additional = "WhatsApp audio",
       this.unmissed = true,
-      this.calls = 1,
+      this.count = 1,
       this.person = 'Мама',
       this.data = "Дата"})
       : super(key: key);
@@ -51,7 +51,7 @@ class _CallCardState extends State<CallCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("${widget.person} (${widget.calls})",
+                Text("${widget.person} (${widget.count.toString()})",
                     style: widget.unmissed ? AppTextStyle.bold17(): AppTextStyle.bold17(color: Colors.red)),
                 Text(widget.additional, style: AppTextStyle.regular15()),
               ],
