@@ -48,21 +48,24 @@ class _RecentCallsState extends State<RecentCalls> {
         //   physics: const BouncingScrollPhysics(),
         // ),
         body: FutureBuilder<http.Response>(
-          future: http.get(Uri.parse("https://reqres.in/api/users")),
+          future: http.get(Uri.parse("https://raw.githubusercontent.com/Gammadov/data/main/calls/call_logs.json")),
           builder:
-              (BuildContext context, AsyncSnapshot<http.Response> snapshot) {
+              (context, snapshot) {
             if (snapshot.hasData) {
-              final Map<String, dynamic> decode = jsonDecode(snapshot.data!.body);
-              final List<dynamic> userList = decode["data"];
+              final List decode = jsonDecode(snapshot.data!.body);
 
               return ListView.separated(
                 itemBuilder: (_, int index) {
-                  final userInfo = userList[index];
+                  final userInfo = decode[index];
 
                   return CallCard(
-                    phone: userInfo['first_name'],
-                    data: userInfo['id'].toString(),
-                    information: userInfo["email"],
+                    type : userInfo['type'],
+                    data: userInfo['date'],
+                    person: userInfo['person'],
+                    calls: userInfo['calls'],
+                    additional: userInfo['additional'],
+                    unmissed: userInfo['unmissed'],
+
                   );
                 },
                 separatorBuilder: (_, int index) => const Padding(
@@ -73,11 +76,11 @@ class _RecentCallsState extends State<RecentCalls> {
                     color: AppColor.tertiary,
                   ),
                 ),
-                itemCount: 6,
+                itemCount: decode.length,
                 physics: const BouncingScrollPhysics(),
               );
             }else {
-              return const CircularProgressIndicator();
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ));
